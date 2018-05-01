@@ -34,7 +34,7 @@ function MapViewModel() {
 
     // Make InfoWindow
     this.largeInfoWindow = new google.maps.InfoWindow();
-    // The folowing loop use location array to create an array of markers on the starting map
+    // The following loop use location array to create an array of markers on the starting map
     for (var i = 0; i < myPOIs.length; i++) {
       this.title = myPOIs[i].title;
       this.lat = myPOIs[i].lat;
@@ -45,16 +45,25 @@ function MapViewModel() {
         map: map,
         title: this.title,
         position: { lat: this.lat, lng: this.lng },
-        animation: google.maps.Animation.BOUNCE,
+        animation: google.maps.Animation.DROP,
         id: i
       });
 
       // Add each marker into a list of markers
       this.marker.setMap(map);
       markers.push(this.marker);
+      this.marker.addListener('click', this.toggleBounce);
     }
-
   };
+
+  this.toggleBounce = function() {
+    if (this.marker.getAnimation() !== null) {
+      this.marker.setAnimation(null);
+    } else {
+      this.marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
+
   this.initMap();
 }
 
