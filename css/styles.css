@@ -31,7 +31,10 @@ body {
 
 /* NavBar Icon https://mdbootstrap.com/components/bootstrap-hamburger-menu/*/
 .navbar-toggler-icon {
-    background-image: url('https://mdbootstrap.com/img/svg/hamburger4.svg?color=1729B0');
+    background-image: url('https://mdbootstrap.com/img/svg/hamburger4.svg?color=F25F5C');
+}
+.navbar-background {
+  background-color: #374A67;
 }
 
 /* remove outer padding */
@@ -85,6 +88,9 @@ nav.sidebar, .main{
     text-align: center;
     width: 100%;
     margin-left: 0px;
+  }
+  .navbar-brand {
+    color: #FFE066;
   }
 
   /*Center Icons*/
