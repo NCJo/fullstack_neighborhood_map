@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Correct order is always lead with meta tag before anything -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="Project Neighborhood Map" content="Map of Seattle Downtown">
+
+  <title>Neighborhood and POIs in Seattle Downtown</title>
+
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  <!-- Customized CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="container-fluid red"> <!--h-100-->
+    <div class="row blue"> <!--h-100-->
+      <main class="col navbar-inverse"> <!--p-0-->
+        <a href class="" data-target="#sidebar" data-toggle="collapse">
+          <span class="navbar-toggler-icon"></span>
+        </a>
+        <div class="content bg-inverse">
+          <!-- Google map -->
+          <div id="map"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Javascript for knockout.js -->
+  <script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js'></script>
+
+  <!-- Optional Javascript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+  <!-- Core Scripts -->
+  <script src="js/app.js" charset="utf-8"></script>
+  <!-- Customized how Google map looks -->
+  <script src="js/googleMapStyling.js"
+   charset="utf-8"></script>
+   <!-- All POIs in the map -->
+  <script src="js/allPOIs.js" charset="utf-8"></script>
+
+  <!-- Google API for google map -->
+  <script async defer
+    src=
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyDJpbKZZw5Hl5yGDF78TEM31uaaIyCBltY&libraries=drawing,geometry&v=3&callback=initMap">
+  </script>
+
+</body>
+</html>
