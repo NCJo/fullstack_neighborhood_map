@@ -9,3 +9,8 @@ function initMap() {
     mapTypeControl: false
   });
 }
+
+function MapViewModel() {
+  var self = this;
+
+}
