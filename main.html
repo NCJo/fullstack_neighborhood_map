@@ -17,36 +17,97 @@
 </head>
 <body>
 
-  <div class="container-fluid red"> <!--h-100-->
-    <div class="row blue"> <!--h-100-->
-      <main class="col navbar-inverse"> <!--p-0-->
-        <a href class="" data-target="#sidebar" data-toggle="collapse">
+  <!-- <div class="container-fluid h-100">
+    <div class="row h-100">
+      <main class="col p-0 navbar-inverse">
+        <a href class="float-left m-3 navbar-light" data-target="#sidebar" data-toggle="collapse">
           <span class="navbar-toggler-icon"></span>
         </a>
         <div class="content bg-inverse">
-          <!-- Google map -->
           <div id="map"></div>
         </div>
       </main>
     </div>
+  </div> -->
+
+  <nav class="navbar navbar-inverse sidebar" role="navigation">
+    <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+			</button>
+
+			<a class="navbar-brand" href="#" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">All Interesting POIs</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+				<li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<ul class="dropdown-menu forAnimate" role="menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+				<li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<ul class="dropdown-menu forAnimate" role="menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+  <!-- MAIN CONTENT-->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+
+      </div>
+    </div>
   </div>
+  <div id="map"></div>
+
 
   <!-- Javascript for knockout.js -->
   <script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js'></script>
 
   <!-- Optional Javascript -->
   <!-- jQuery first, then Popper.js, then Bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+  <!-- ############ -->
   <!-- Core Scripts -->
+  <!-- ############ -->
   <script src="js/app.js" charset="utf-8"></script>
   <!-- Customized how Google map looks -->
   <script src="js/googleMapStyling.js"
    charset="utf-8"></script>
-   <!-- All POIs in the map -->
-  <script src="js/allPOIs.js" charset="utf-8"></script>
+  <!-- All POIs in the map -->
+  <script src="js/allPOI.js" charset="utf-8"></script>
+  <!-- All page cosmetic functionality -->
+  <!-- May or may not need to get rid for navbar -->
+  <script src="js/page.js" charset="utf-8"></script>
 
   <!-- Google API for google map -->
   <script async defer
