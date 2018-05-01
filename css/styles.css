@@ -33,8 +33,15 @@ body {
 .navbar-toggler-icon {
     background-image: url('https://mdbootstrap.com/img/svg/hamburger4.svg?color=F25F5C');
 }
+
 .navbar-background {
   background-color: #374A67;
+}
+
+/* To get rid of the ugly blue border around button when click */
+.navbar-toggler {
+  outline: none !important;
+  border: none !important;
 }
 
 /* remove outer padding */
