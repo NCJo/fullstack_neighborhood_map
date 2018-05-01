@@ -1,4 +1,4 @@
-var myLocations = [
+var myPOIs = [
   {
     title: 'Space Needle',
     lat: 47.620506,
