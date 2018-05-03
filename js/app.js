@@ -12,13 +12,19 @@
 // }
 // End for DEBUG
 
-// Set this to global to prevent error
+// Set these to global scope to prevent error
 var map;
-var markers = [];
+// var markers = [];
+
 
 function MapViewModel() {
   var self = this;
 
+  // From search bar in the main page to filter out some markers
+  this.searchOption = ko.observable("");
+  this.markers = [];
+
+  // MAIN FUNCTIONS
   this.initMap = function() {
     var elementToPlaceMap = document.getElementById('map');
     var mapProperties = {
@@ -51,10 +57,30 @@ function MapViewModel() {
 
       // Add each marker into a list of markers
       this.marker.setMap(map);
-      markers.push(this.marker);
+      this.markers.push(this.marker);
+
       this.marker.addListener('click', this.toggleBounce);
     }
   };
+  this.initMap();
+
+  // This block appends our locations to a list using data-bind
+  // It also serves to make the filter work
+  this.myLocationsFilter = ko.computed(function() {
+      var result = [];
+      for (var i = 0; i < this.markers.length; i++) {
+          var markerLocation = this.markers[i];
+          if (markerLocation.title.toLowerCase().includes(this.searchOption()
+                  .toLowerCase())) {
+              result.push(markerLocation);
+              this.markers[i].setVisible(true);
+          } else {
+              this.markers[i].setVisible(false);
+          }
+      }
+      return result;
+  }, this);
+
 
   this.toggleBounce = function() {
     if (this.marker.getAnimation() !== null) {
@@ -64,9 +90,9 @@ function MapViewModel() {
     }
   }
 
-  this.initMap();
+
 }
 
 function initializeMapApp() {
-  ko.applyBinding(new MapViewModel());
+  ko.applyBindings(new MapViewModel());
 }

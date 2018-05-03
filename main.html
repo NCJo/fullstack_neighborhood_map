@@ -16,20 +16,6 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-  <!-- <div class="container-fluid h-100">
-    <div class="row h-100">
-      <main class="col p-0 navbar-inverse">
-        <a href class="float-left m-3 navbar-light" data-target="#sidebar" data-toggle="collapse">
-          <span class="navbar-toggler-icon"></span>
-        </a>
-        <div class="content bg-inverse">
-          <div id="map"></div>
-        </div>
-      </main>
-    </div>
-  </div> -->
-
   <nav class="navbar navbar-inverse sidebar navbar-background" role="navigation">
     <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -38,15 +24,15 @@
         <span class="navbar-toggler-icon"></span>
 			</button>
 
-			<!-- <a class="navbar-brand" href="#" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">Interesting Places!</a>
-		</div> -->
-
-    <input class="navbar-brand" data-bind="textInput: userName" />
+    <input class="" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Quick Search..." />
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+			<ul class="nav navbar-nav" data-bind="foreach: myLocationsFilter">
+        <!-- <ul data-bind="foreach: myLocationsFilter">
+          <li class= "pull-right hidden-xs showopacity" data-bind="text: title"></li>
+        </ul> -->
+        <li data-bind="text: title"></li>
+				<!-- <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
@@ -59,24 +45,9 @@
 						<li class="divider"></li>
 						<li><a href="#">One more separated link</a></li>
 					</ul>
-				</li>
-				<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
+				</li> -->
 			</ul>
-		</div>
+		</div> <!-- collapse navbar-collapse -->
 	</div>
 </nav>
   <!-- MAIN CONTENT-->
@@ -91,7 +62,7 @@
 
 
   <!-- Javascript for knockout.js -->
-  <script src="js/knockout-3.4.2.js" charset="utf-8"></script>
+  <script src="js/knockout-3.4.2.js"  type="text/javascript" charset="utf-8"></script>
 
   <!-- Optional Javascript -->
   <!-- jQuery first, then Popper.js, then Bootstrap -->

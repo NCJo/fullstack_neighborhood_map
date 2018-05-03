@@ -24,45 +24,45 @@ var myPOIs = [
     detail: 'Tourist Place'
   },
   {
-    title: 'Noi Thai Cuisine',
-    lat: 47.606919,
-    lng: -122.338871,
-    detail: 'Restaurant'
+    title: 'Seattle Art Museum',
+    lat: 47.607309,
+    lng: -122.338133,
+    detail: 'Tourist Place'
   },
   {
-    title: 'Maneki',
-    lat: 47.599719,
-    lng: -122.326047,
-    detail: 'Restaurant'
+    title: 'Olympic Sculpture Park',
+    lat: 47.616399,
+    lng: -122.354103,
+    detail: 'Tourist Place'
   },
   {
-    title: 'Tsukushinbo',
-    lat: 47.599856,
-    lng: -122.326785,
-    detail: 'Restaurant'
+    title: 'Wing Luke Museum',
+    lat: 47.598140,
+    lng: -122.322804,
+    detail: 'Tourist Place'
   },
   {
-    title: 'Pacific Place',
-    lat: 47.612770,
-    lng: -122.335636,
-    detail: 'Shopping Place'
+    title: 'Ye Old Curiousity Shop',
+    lat: 47.604128,
+    lng: -122.339603,
+    detail: 'Tourist Place'
   },
   {
-    title: 'Seattle Cinerama',
-    lat: 47.614188,
-    lng: -122.341425,
-    detail: 'Theater'
+    title: 'Seattle Central Library',
+    lat: 47.606600,
+    lng: -122.332984,
+    detail: 'Tourist Place'
   },
   {
     title: 'Seattle Aquarium',
     lat: 47.607257,
     lng: -122.343753,
-    detail: 'Aquarium'
+    detail: 'Tourist Place'
   },
   {
     title: 'Benaroya Hall',
     lat: 47.608075,
     lng: -122.336915,
-    detail: 'Theater'
+    detail: 'Tourist Place'
   },
 ]
