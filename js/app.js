@@ -59,11 +59,33 @@ function MapViewModel() {
       // Add each marker into a list of markers
       this.marker.setMap(map);
       this.markers.push(this.marker);
-
-      this.marker.addListener('click', this.toggleBounce);
+      // this.marker.addListener('click', self.populateAndBounceMarker);
+      this.marker.addListener('click', function() {
+        self.populateInfoWindow(this, self.largeInfoWindow);
+        this.setAnimation(google.maps.Animation.BOUNCE);
+      })
     }
   };
   this.initMap();
+
+  // This function populates the infowindow when the marker is clicked. We'll only allow one infowindow  which will open at the marker that is clicked, and populate based on that markers position
+  this.populateInfoWindow = function(marker, infowindow) {
+    // Check to make sure the infowindow is not already opened on this marker
+    if (infowindow.marker != marker) {
+      // Clear the info window content to give the streetview time to load
+      infowindow.setContent('');
+      infowindow.marker = marker;
+
+      infowindow.setContent('<div>' + marker.title + '</div>');
+
+      infowindow.open(map, marker);
+
+      // Make sure the marker properly is cleared if the infowindow is closed
+      infowindow.addListener('closeclick', function() {
+        infowindow.marker = null;
+      });
+    }
+  };
 
   // This block appends our locations to a list using data-bind
   // It also serves to make the filter work
@@ -81,17 +103,6 @@ function MapViewModel() {
       }
       return result;
   }, this);
-
-
-  this.toggleBounce = function() {
-    if (this.marker.getAnimation() !== null) {
-      this.marker.setAnimation(null);
-    } else {
-      this.marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  }
-
-
 }
 
 function initializeMapApp() {
