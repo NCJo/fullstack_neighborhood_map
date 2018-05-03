@@ -45,11 +45,12 @@ function MapViewModel() {
       this.title = myPOIs[i].title;
       this.lat = myPOIs[i].lat;
       this.lng = myPOIs[i].lng;
-      this.detail = myPOIs[i].detail;
+      this.address = myPOIs[i].address;
 
       this.marker = new google.maps.Marker({
         map: map,
         title: this.title,
+        address: this.address,
         position: { lat: this.lat, lng: this.lng },
         animation: google.maps.Animation.DROP,
         id: i

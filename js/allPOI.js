@@ -3,66 +3,66 @@ var myPOIs = [
     title: 'Space Needle',
     lat: 47.620506,
     lng: -122.349277,
-    detail: 'Tourist Place'
+    address: '400 Broad St, Seattle, WA 98109'
   },
   {
     title: 'Gum Wall',
     lat: 47.608305,
     lng: -122.340224,
-    detail: 'Tourist Place'
+    address: '1428 Post Alley, Seattle, WA 98101'
   },
   {
     title: 'Smith Tower',
     lat: 47.601980,
     lng: -122.331717,
-    detail: 'Tourist Place'
+    address: '506 2nd Ave, Seattle, WA 98104'
   },
   {
     title: 'Seattle Center',
     lat: 47.620745,
     lng: -122.350433,
-    detail: 'Tourist Place'
+    address: '305 Harrison St, Seattle, WA 98109'
   },
   {
     title: 'Seattle Art Museum',
     lat: 47.607309,
     lng: -122.338133,
-    detail: 'Tourist Place'
+    address: '1300 1st Ave, Seattle, WA 98101'
   },
   {
     title: 'Olympic Sculpture Park',
     lat: 47.616399,
     lng: -122.354103,
-    detail: 'Tourist Place'
+    address: '2901 Western Ave, Seattle, WA 98121'
   },
   {
     title: 'Wing Luke Museum',
     lat: 47.598140,
     lng: -122.322804,
-    detail: 'Tourist Place'
+    address: '719 S King St, Seattle, WA 98104'
   },
   {
-    title: 'Ye Old Curiousity Shop',
+    title: 'Ye Olde Curiousity Shop',
     lat: 47.604128,
     lng: -122.339603,
-    detail: 'Tourist Place'
+    address: 'Pier 54, 1001 Alaskan Way, Seattle, WA 98104'
   },
   {
     title: 'Seattle Central Library',
     lat: 47.606600,
     lng: -122.332984,
-    detail: 'Tourist Place'
+    address: '1000 4th Ave, Seattle, WA 98104'
   },
   {
     title: 'Seattle Aquarium',
     lat: 47.607257,
     lng: -122.343753,
-    detail: 'Tourist Place'
+    address: '1483 Alaskan Way, Seattle, WA 98101'
   },
   {
     title: 'Benaroya Hall',
     lat: 47.608075,
     lng: -122.336915,
-    detail: 'Tourist Place'
+    address: '200 University St, Seattle, WA 98101'
   },
 ]
