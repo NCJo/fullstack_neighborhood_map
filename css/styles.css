@@ -25,6 +25,10 @@ body {
   height: 100%;
 }
 
+.no-decoration {
+  text-decoration: none;
+}
+
 /*        */
 /* NavBar */
 /*        */
