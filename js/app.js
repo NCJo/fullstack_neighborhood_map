@@ -1,4 +1,4 @@
-// TODO: ADD COMMENT, CHANGE VARIABLES NAME, ADD LINK TO EACH LINK ON THE SIDEBAR, FIX BOUNCING TIMEOUT NEEDED
+// TODO: ADD COMMENT, CHANGE VARIABLES NAME, ADD LINK TO EACH LINK ON THE SIDEBAR
 
 // FOR DEBUG
 // var map;
@@ -67,6 +67,9 @@ function MapViewModel() {
         map.setCenter(this.getPosition());
         self.populateInfoWindow(this, self.largeInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function() {
+          this.setAnimation(null);
+        }.bind(this), 5000);
       })
 
     }
@@ -113,7 +116,7 @@ function MapViewModel() {
 
       // Make sure the marker properly is cleared if the infowindow is closed
       infowindow.addListener('closeclick', function() {
-        infowindow.marker.setAnimation(google.maps.Animation.DROP);
+        infowindow.marker.setAnimation(null);
         infowindow.marker = null;
 
       });
@@ -126,6 +129,9 @@ function MapViewModel() {
     map.setCenter(this.getPosition());
     self.populateInfoWindow(this, self.largeInfoWindow);
     this.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(function() {
+      this.setAnimation(null);
+    }.bind(this), 5000)
   };
 
   // This block appends our locations to a list using data-bind
