@@ -1,3 +1,5 @@
+// TODO: ADD COMMENT, CHANGE VARIABLES NAME
+
 // FOR DEBUG
 // var map;
 //
@@ -64,6 +66,7 @@ function MapViewModel() {
         self.populateInfoWindow(this, self.largeInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
       })
+
     }
   };
   this.initMap();
@@ -77,7 +80,6 @@ function MapViewModel() {
       infowindow.setContent('');
       infowindow.marker = marker;
       // Setting up URL for Wikipedia request
-      // TODO: ADD COMMENT, CHANGE VARIABLES NAME, set time out for bouncing infowindow
       var wikiURL = 'https://en.wikipedia.org/w/api.php?format=json&action=opensearch&search=' + marker.title
 
       $.ajax( {
@@ -109,7 +111,9 @@ function MapViewModel() {
 
       // Make sure the marker properly is cleared if the infowindow is closed
       infowindow.addListener('closeclick', function() {
+        infowindow.marker.setAnimation(google.maps.Animation.DROP);
         infowindow.marker = null;
+
       });
     }
   };
