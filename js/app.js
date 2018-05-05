@@ -69,14 +69,41 @@ function MapViewModel() {
   this.initMap();
 
   // This function populates the infowindow when the marker is clicked. We'll only allow one infowindow  which will open at the marker that is clicked, and populate based on that markers position
-  this.populateInfoWindow = function(marker, infowindow) {
+  // Put all the third party APIs in this function for it to show in the info window when click
+  this.populateInfoWindow = function(marker, infowindow, title) {
     // Check to make sure the infowindow is not already opened on this marker
     if (infowindow.marker != marker) {
       // Clear the info window content to give the streetview time to load
       infowindow.setContent('');
       infowindow.marker = marker;
+      // Setting up URL for Wikipedia request
+      // TODO: ADD COMMENT, CHANGE VARIABLES NAME, set time out for bouncing infowindow
+      var wikiURL = 'https://en.wikipedia.org/w/api.php?format=json&action=opensearch&search=' + marker.title
 
-      infowindow.setContent('<div>' + marker.title + '</div>');
+      $.ajax( {
+        url: wikiURL,
+        // Need to use jsonp not json for it to work
+        dataType: 'jsonp',
+        type: 'POST',
+        headers: { 'Api-User-Agent': 'Example/1.0' },
+        success: function(data) {
+          // console.log(data[2][0]);
+          poiTitle = data[0];
+          poiDescription = data[2].shift();
+          poiURL = data[3].shift();
+          htmlShowInfo = '<h6>' + poiTitle + '</h6>' + '<br>' +
+                        '<h8>' + marker.address + '</h8>' + '<br>' + '<br>' +
+                        '<h8>' + poiDescription + '</h8>' + '<br>' + '<br>' +
+                        '<h8>' + '<a href='+ poiURL + '>' + poiURL + '</a>' + '</h8>';
+          // infowindow.setContent('<h7>' + marker.title + '</h7>');
+          infowindow.setContent(htmlShowInfo);
+
+        }
+      }).fail(function() {
+        alert("There was an error getting Wikipedia API.");
+      });
+
+      // infowindow.setContent('<h7>' + poiURL + '</h7>');
 
       infowindow.open(map, marker);
 
