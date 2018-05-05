@@ -31,7 +31,7 @@
         <!-- <ul data-bind="foreach: myLocationsFilter">
           <li class= "pull-right hidden-xs showopacity" data-bind="text: title"></li>
         </ul> -->
-        <li data-bind="text: title"></li>
+        <li data-bind="text: title, click:$parent.selectMarkerFromSideNav"></li>
 				<!-- <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
 				<li class="dropdown">

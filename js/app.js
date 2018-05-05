@@ -1,4 +1,4 @@
-// TODO: ADD COMMENT, CHANGE VARIABLES NAME
+// TODO: ADD COMMENT, CHANGE VARIABLES NAME, ADD LINK TO EACH LINK ON THE SIDEBAR, FIX BOUNCING TIMEOUT NEEDED
 
 // FOR DEBUG
 // var map;
@@ -61,8 +61,10 @@ function MapViewModel() {
       // Add each marker into a list of markers
       this.marker.setMap(map);
       this.markers.push(this.marker);
-      // this.marker.addListener('click', self.populateAndBounceMarker);
+
       this.marker.addListener('click', function() {
+        // This centering method works somehow...
+        map.setCenter(this.getPosition());
         self.populateInfoWindow(this, self.largeInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
       })
@@ -116,6 +118,14 @@ function MapViewModel() {
 
       });
     }
+  };
+
+  // Function for interaction with marker from the navbar
+  this.selectMarkerFromSideNav = function() {
+    // This centering method works somehow...
+    map.setCenter(this.getPosition());
+    self.populateInfoWindow(this, self.largeInfoWindow);
+    this.setAnimation(google.maps.Animation.BOUNCE);
   };
 
   // This block appends our locations to a list using data-bind
