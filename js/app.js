@@ -1,4 +1,4 @@
-// TODO: ADD COMMENT, CHANGE VARIABLES NAME, ADD LINK TO EACH LINK ON THE SIDEBAR
+// TODO: None
 
 // FOR DEBUG
 // var map;
@@ -99,7 +99,6 @@ function MapViewModel() {
                         '<h8 class="text-secondary">' + marker.address + '</h8>' + '<br>' + '<br>' +
                         '<h8 class="text-success">' + poiDescription + '</h8>' + '<br>' + '<br>' +
                         '<h8>' + '<a href='+ poiURL + '>' + poiURL + '</a>' + '</h8>';
-          // infowindow.setContent('<h7>' + marker.title + '</h7>');
           infowindow.setContent(htmlShowInfo);
 
         }
@@ -107,8 +106,6 @@ function MapViewModel() {
         // Tell user about the error
         alert("There was an error getting Wikipedia API.");
       });
-
-      // infowindow.setContent('<h7>' + poiURL + '</h7>');
 
       infowindow.open(map, marker);
 
