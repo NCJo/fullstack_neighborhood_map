@@ -14,10 +14,8 @@
 // }
 // End for DEBUG
 
-// Set these to global scope to prevent error
+// Set to global scope to prevent error
 var map;
-// var markers = [];
-
 
 function MapViewModel() {
   var self = this;
@@ -107,6 +105,7 @@ function MapViewModel() {
 
         }
       }).fail(function() {
+        // Tell user about the error
         alert("There was an error getting Wikipedia API.");
       });
 
