@@ -98,9 +98,9 @@ function MapViewModel() {
           poiTitle = data[0];
           poiDescription = data[2].shift();
           poiURL = data[3].shift();
-          htmlShowInfo = '<h6>' + poiTitle + '</h6>' + '<br>' +
-                        '<h8>' + marker.address + '</h8>' + '<br>' + '<br>' +
-                        '<h8>' + poiDescription + '</h8>' + '<br>' + '<br>' +
+          htmlShowInfo = '<h6 class="text-danger">' + poiTitle + '</h6>' + '<br>' +
+                        '<h8 class="text-secondary">' + marker.address + '</h8>' + '<br>' + '<br>' +
+                        '<h8 class="text-success">' + poiDescription + '</h8>' + '<br>' + '<br>' +
                         '<h8>' + '<a href='+ poiURL + '>' + poiURL + '</a>' + '</h8>';
           // infowindow.setContent('<h7>' + marker.title + '</h7>');
           infowindow.setContent(htmlShowInfo);
