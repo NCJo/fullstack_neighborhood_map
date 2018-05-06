@@ -19,9 +19,8 @@ var map;
 
 function MapViewModel() {
   var self = this;
-
   // From search bar in the main page to filter out some markers
-  this.searchOption = ko.observable("");
+  this.filterOption = ko.observable("");
   this.markers = [];
 
   // MAIN FUNCTIONS
@@ -65,6 +64,7 @@ function MapViewModel() {
         map.setCenter(this.getPosition());
         self.populateInfoWindow(this, self.largeInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
+        // Marker will stop bouncing after 5 seconds
         setTimeout(function() {
           this.setAnimation(null);
         }.bind(this), 5000);
@@ -76,7 +76,7 @@ function MapViewModel() {
 
   // This function populates the infowindow when the marker is clicked. We'll only allow one infowindow  which will open at the marker that is clicked, and populate based on that markers position
   // Put all the third party APIs in this function for it to show in the info window when click
-  this.populateInfoWindow = function(marker, infowindow, title) {
+  this.populateInfoWindow = function(marker, infowindow) {
     // Check to make sure the infowindow is not already opened on this marker
     if (infowindow.marker != marker) {
       // Clear the info window content to give the streetview time to load
@@ -84,7 +84,7 @@ function MapViewModel() {
       infowindow.marker = marker;
       // Setting up URL for Wikipedia request
       var wikiURL = 'https://en.wikipedia.org/w/api.php?format=json&action=opensearch&search=' + marker.title
-
+      // Get data from Wikipedia API
       $.ajax( {
         url: wikiURL,
         // Need to use jsonp not json for it to work
@@ -92,7 +92,6 @@ function MapViewModel() {
         type: 'POST',
         headers: { 'Api-User-Agent': 'Example/1.0' },
         success: function(data) {
-          // console.log(data[2][0]);
           poiTitle = data[0];
           poiDescription = data[2].shift();
           poiURL = data[3].shift();
@@ -113,7 +112,7 @@ function MapViewModel() {
 
       infowindow.open(map, marker);
 
-      // Make sure the marker properly is cleared if the infowindow is closed
+      // Make sure the marker properly is cleared if the infowindow is closed and animation is stopped
       infowindow.addListener('closeclick', function() {
         infowindow.marker.setAnimation(null);
         infowindow.marker = null;
@@ -124,7 +123,7 @@ function MapViewModel() {
 
   // Function for interaction with marker from the navbar
   this.selectMarkerFromSideNav = function() {
-    // This centering method works somehow...
+    // This map centering method works somehow...
     map.setCenter(this.getPosition());
     self.populateInfoWindow(this, self.largeInfoWindow);
     this.setAnimation(google.maps.Animation.BOUNCE);
@@ -135,22 +134,23 @@ function MapViewModel() {
 
   // This block appends our locations to a list using data-bind
   // It also serves to make the filter work
-  this.myLocationsFilter = ko.computed(function() {
-      var result = [];
+  this.locationsFilter = ko.computed(function() {
+      var filteredResult = [];
       for (var i = 0; i < this.markers.length; i++) {
           var markerLocation = this.markers[i];
-          if (markerLocation.title.toLowerCase().includes(this.searchOption()
+          if (markerLocation.title.toLowerCase().includes(this.filterOption()
                   .toLowerCase())) {
-              result.push(markerLocation);
+              filteredResult.push(markerLocation);
               this.markers[i].setVisible(true);
           } else {
               this.markers[i].setVisible(false);
           }
       }
-      return result;
+      return filteredResult;
   }, this);
 }
 
+// Initialize the function
 function initializeMapApp() {
   ko.applyBindings(new MapViewModel());
 }

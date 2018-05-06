@@ -28,13 +28,13 @@
 			</button>
 
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" aria-expanded="false"><h2 class="text-primary stylish-font">Check all these fun places!</h2>
-      </button><br>
+      </button><br><br>
 
-      <input class="" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Quick Search..." /><br><br>
+      <input class="" data-bind="textInput: filterOption, valueUpdate: 'afterkeydown'" placeholder="Quick Search..." /><br><br>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-			<ul class="nav navbar-nav" data-bind="foreach: myLocationsFilter">
+			<ul class="nav navbar-nav" data-bind="foreach: locationsFilter">
         <a class="no-decoration text-warning" href=""><li data-bind="text: title, click:$parent.selectMarkerFromSideNav"></li></a><br />
 			</ul>
 		</div> <!-- collapse navbar-collapse -->
