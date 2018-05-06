@@ -147,6 +147,10 @@ function MapViewModel() {
   }, this);
 }
 
+googleMapApiError = function() {
+  alert("There is an error with google map API.");
+}
+
 // Initialize the function
 function initializeMapApp() {
   ko.applyBindings(new MapViewModel());
